@@ -1,9 +1,9 @@
-<div class="user" [routerLink]="['/user', user.id]">
-  <img src="{{ user.profilePic }}" alt="Avatar" />
+<div class="user" [routerLink]="['/user', user?.id]">
+  <img src="{{ user?.profilePic }}" alt="Avatar" />
   <div class="container">
     <h4>
-      <b>{{ user.firstName }}</b>
+      <b>{{ user?.firstName }}</b>
     </h4>
-    <p>{{ user.lastName }}</p>
+    <p>{{ user?.lastName }}</p>
   </div>
 </div>

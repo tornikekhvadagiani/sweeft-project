@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  @Input() user!: User;
+  @Input() user!: User | undefined;
 
   constructor() {}
 

@@ -1,2 +1,18 @@
-<p>{{ user?.firstName }}</p>
-<p>{{ user?.lastName }}</p>
+<div class="card">
+  <img
+    src="{{ user?.profilePic }}"
+    alt="{{ user?.firstName }}"
+    style="width: 100%"
+  />
+  <h1>{{ user?.firstName }} {{ user?.lastName }}</h1>
+  <p class="title">{{ user?.description }}</p>
+  <p><button>Contact</button></p>
+</div>
+<h1>Friends List</h1>
+<div class="friends">
+  <app-user [user]="friend" *ngFor="let friend of friends"></app-user>
+</div>
+
+<div *ngIf="isLoading" class="loader-wrapper">
+  <span class="loader"></span>
+</div>
