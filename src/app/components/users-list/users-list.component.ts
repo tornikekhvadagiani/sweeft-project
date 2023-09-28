@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  usersData: User[] = [];
+  allUsers: User[] = [];
 
   users: User[] = [];
 
@@ -23,14 +23,14 @@ export class UsersListComponent implements OnInit {
     if (
       window.innerHeight + window.scrollY >= document.body.offsetHeight &&
       !this.isLoading &&
-      this.users.length !== this.usersData.length
+      this.users.length !== this.allUsers.length
     ) {
       this.isLoading = true;
 
       setTimeout(() => {
         this.users = [
           ...this.users,
-          ...this.usersData.slice(
+          ...this.allUsers.slice(
             this.pageSize * this.pageCount,
             this.pageSize * this.pageCount + this.pageCount
           ),
@@ -43,9 +43,10 @@ export class UsersListComponent implements OnInit {
 
   constructor(private userService: UsersService) {
     this.isLoading = true;
+
     this.userService.getAllUsers().then((users) => {
-      this.usersData = users;
-      this.users = this.usersData.slice(0, this.pageCount);
+      this.allUsers = users;
+      this.users = this.allUsers.slice(0, this.pageCount);
       this.isLoading = false;
     });
   }
