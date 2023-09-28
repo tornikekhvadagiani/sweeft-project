@@ -1,1 +1,5 @@
-<p>users-list works!</p>
+<div class="wrapper">
+  <app-user [user]="user" *ngFor="let user of users">{{
+    user.firstName
+  }}</app-user>
+</div>
